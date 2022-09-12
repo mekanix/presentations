@@ -1,0 +1,110 @@
+\documentclass[17pt]{beamer}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{FreeBSD Audio }
+\subtitle{Amateur and Professional Setups}
+\author{Goran Mekić}
+\date{}
+
+\usecolortheme{seahorse}
+\begin{document}
+  \frame {
+    \titlepage
+    \tiny{EuroBSD, 18 Sep 2022}
+  }
+  \frame {
+    \frametitle{Agenda}
+    \begin{itemize}
+      \item Virtual OSS
+      \item JACK 2
+      \item Audio Servers
+      \item Real Time
+      \item FreeBSD tuning
+      \item Future
+    \end{itemize}
+  }
+  \frame{
+    \frametitle{Virtual OSS}
+      \begin{itemize}
+        \item Hans Peter Selasky
+        \item Big number of channels
+        \item Combining/Splitting
+        \item Routing and utilities
+        \item Easier audio development
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{JACK 2}
+      \begin{itemize}
+        \item Florian Walpen
+        \item Real Time aware
+        \item Studio grade implementation
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Audio Servers}
+      \begin{itemize}
+        \item PulseAudio
+        \item SNDIO
+        \item ALSA
+        \item Portable audio development
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Real Time}
+      \begin{itemize}
+        \item Hans/Florian
+        \item Why is it important?
+        \item Apps without RT support
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Real Time}
+    \large{pw group mod realtime -m user}
+
+    \large{rtprio 20 audacious \&}
+
+    \large{poudriere testport ...}
+  }
+  \frame{
+    \frametitle{FreeBSD Tuning}
+      \begin{itemize}
+        \item kern.timecounter.alloweddeviation=0
+        \item hw.usb.uaudio.buffer{\_}ms=2
+        \item hw.snd.latency=0
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Future}
+      \begin{itemize}
+        \item More docs/examples
+        \item More ports (yuri@)
+        \item Optimization
+        \item Network mixers
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Thank you!}
+      \begin{itemize}
+        \item Hans Peter Selasky
+        \item Florian Walpen
+        \item yuri@
+        \item LV2 developers
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Special Reviewer}
+    \includegraphics[width=\textwidth]{special-reviewer}
+  }
+  \frame{
+    \frametitle{Questions?}
+      \begin{itemize}
+        \item site: meka.rs
+        \item mail/XMPP: meka@tilda.center
+        \item mastodon: @meka@bsd.network
+        \item slides: github/mekanix/presentations
+      \end{itemize}
+  }
+\end{document}
