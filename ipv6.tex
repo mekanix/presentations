@@ -1,0 +1,135 @@
+\documentclass[17pt]{beamer}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{IPv6 in Serbia}
+\subtitle{Succssessfull Story}
+\author{Goran Mekić}
+\date{}
+
+\usecolortheme{seahorse}
+\begin{document}
+  \frame {
+    \titlepage
+    \tiny{RIPE, 24-28 Oct 2022}
+  }
+  \frame {
+    \frametitle{About me}
+    \begin{itemize}
+      \item Tilda Center co-founder
+      \item FreeBSD user/hacker
+      \item CBSD contributor
+      \item Reggae author
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Agenda}
+    \begin{itemize}
+      \item Static IPv4 and IPv6 tunnel
+      \item Distributing IPv6
+      \item FreeBSD and DHCPCD
+      \item Containers
+      \item Why?
+      \item Future
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{IPv4 and IPv6}
+    \includegraphics[width=\textwidth]{IP}
+  }
+  \frame {
+    \frametitle{Static IPv4 and IPv6 tunnel}
+    \begin{itemize}
+      \item ISP and modem
+      \item IPv6 tunnel and routing
+      \item Prefer IPv4 or IPv6
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Distributing IPv6}
+    \begin{itemize}
+      \item Terminology is different
+      \item SLAAC/DHCPv6
+      \item Server/router bridged interfaces
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{FreeBSD and DHCPCD}
+    \begin{itemize}
+      \item IPv6 routing patch
+      \item DHCPCD in ports and base
+      \item Network and routing stack
+      \item Firewalls and queuing
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Dual stack}
+    \includegraphics[width=\textwidth]{dual-stack}
+  }
+  \frame {
+    \frametitle{Containers}
+    \includegraphics[width=\textwidth]{containers}
+  }
+  \frame {
+    \frametitle{Containers}
+    \begin{itemize}
+      \item FreeBSD VNET jails 
+      \item Bridged interfaces with jails
+      \item Firewalls
+    \end{itemize}
+  }
+  \frame{
+    \frametitle{Jail network}
+    \footnotesize{ifconfig eth0}
+
+    \footnotesize{\ \ inet6 fd10::91f prefixlen 64 autoconf}
+
+    \footnotesize{\ \ inet6 fd10::ffff:ffff:ffff:fffc prefixlen 128}
+
+    \footnotesize{\ \ inet 172.16.0.9 netmask 0xffffff00 broadcast 172.16.0.255}
+  }
+  \frame{
+    \frametitle{Jail network}
+    \footnotesize{netstat -rn}
+
+    \footnotesize{\ \ default 172.16.0.254 UG eth0}
+
+    \footnotesize{\ \ default fe80::5a9c:fcff:fe10:9b75\%eth0 UG eth0}
+  }
+  \frame {
+    \frametitle{Why?}
+    \begin{itemize}
+      \item No more IPv4
+      \item IPv4 price and spam
+      \item IPv6 globally unique
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{The Future}
+    \begin{itemize}
+      \item Education
+      \item Hackerspaces
+      \item Deployment
+      \item ISPs
+    \end{itemize}
+  }
+  \frame{
+    \frametitle{Thank you!}
+      \begin{itemize}
+        \item Tilda Center
+        \item FreeBSD community
+        \item IPv6 Buzz
+        \item CBSD/Reggae
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Questions?}
+      \begin{itemize}
+        \item site: meka.rs
+        \item mail/XMPP: meka@tilda.center
+        \item mastodon: @meka@bsd.network
+        \item slides: github/mekanix/presentations
+      \end{itemize}
+  }
+\end{document}
