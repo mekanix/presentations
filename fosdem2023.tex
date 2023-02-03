@@ -1,0 +1,149 @@
+\documentclass[17pt]{beamer}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{Reggae}
+\subtitle{Cool way of managing jails/VMs on FreeBSD}
+\author{Goran Mekić}
+\date{}
+
+\usecolortheme{seahorse}
+\begin{document}
+  \frame {
+    \titlepage
+    \tiny{FOSDEM, 03 Feb 2023}
+  }
+  \frame {
+    \frametitle{Goran Mekić}
+    \begin{itemize}
+      \item Tilda Center co-founder
+      \item FreeBSD user since 2016
+      \item CBSD contributor
+      \item Reggae author
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Similar Tools}
+    \begin{itemize}
+      \item Vagrant
+      \item Docker compose
+      \item CBSDFile
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Concept}
+    \begin{itemize}
+      \item CBSD
+      \item Service
+      \item Project
+      \item Provisioners
+      \item IPv4 \& IPv6
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Technologies}
+    \begin{itemize}
+      \item DHCP
+      \item RTADVD
+      \item NSD
+      \item Unbound
+      \item PF
+      \item Make
+      \item POSIX shell
+      \item ZFS and UFS
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Provisioners}
+    \begin{itemize}
+      \item Shell
+      \item Ansible
+      \item Puppet
+      \item Chef
+      \item Salt Stack
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{What it brings}
+    \begin{itemize}
+      \item Network initialization
+      \item CBSD initialization
+      \item Master jail (DHCP+DNS)
+      \item Late per-jail PF anchors
+      \item Prod vs Dev
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{What it brings}
+    \begin{itemize}
+      \item Support for devfs
+      \item Boot order
+      \item PKG proxy
+      \item Support for X
+      \item Jail and bhyve
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Development}
+    \begin{itemize}
+      \item Turn off autostart
+      \item Share service dir via nullfs
+      \item The `devel` user and make target
+      \item Frameworks support (Freenit)
+    \end{itemize}
+  }
+  \frame {
+    \frametitle{Production}
+    \begin{itemize}
+      \item Turn on autostart
+      \item The `devel` user is cleared
+      \item Export/import with rename
+    \end{itemize}
+  }
+  \frame{
+    \frametitle{Example}
+    \large{mkdir myproject}
+
+    \large{cd myproject}
+
+    \large{reggae project-init}
+
+    \large{mkdir -p services/backend}
+    
+    \large{cd services/backend}
+    
+    \large{reggae init ansible}
+  }
+  \frame{
+    \frametitle{Dependencies in Project}
+    \large{USE = mysql wordpress nginx}
+
+    github.com/mekanix/comms
+  }
+  \frame {
+    \frametitle{The Future}
+    \begin{itemize}
+      \item Documentation
+      \item jail.conf
+      \item Kubernetes
+    \end{itemize}
+  }
+  \frame{
+    \frametitle{Thank you!}
+      \begin{itemize}
+        \item Tilda Center
+        \item FreeBSD community
+        \item CBSD/Oleg
+      \end{itemize}
+  }
+  \frame{
+    \frametitle{Questions?}
+      \begin{itemize}
+        \item site: meka.rs
+        \item mail/XMPP: meka@tilda.center
+        \item mastodon: @meka@bsd.network
+        \item slides: github/mekanix/presentations
+      \end{itemize}
+  }
+\end{document}
